@@ -9,45 +9,40 @@
 \RequirePackage{url}
 % Multirow allows table cells to span multiple rows
 \RequirePackage{multirow}
-% The tabularx environment is an extension of tabular that allows 
-% paragraph-type column widths to be calculated automatically 
+% The tabularx environment is an extension of tabular that allows paragraph-type column widths to be calculated automatically 
 \RequirePackage{tabularx}
 
 % Improvements for mathematical formatting
 \RequirePackage{amsmath}
 
-% The lastpage package provides a label that can be used to get the 
-% page number of the last page
+% The lastpage package provides a label that can be used to get the page number of the last page
 \RequirePackage{lastpage}
 
 % The etoolbox command provides some advanced commands 
 \RequirePackage{etoolbox}
 
-% The array package fixes some things in the default LaTeX arrays and 
-% tabulars. This package is required by many other packages. 
+% The array package fixes some things in the default LaTeX arrays and tabulars.
+% This package is required by many other packages. 
 \RequirePackage{array}
 % The ifthen package provides conditional evaluation of statements
 \RequirePackage{ifthen}
-% Textpos can be used to position text absolutely (at an absolute 
-% position in the page, instead of a relative position)
+% Textpos can be used to position text absolutely (at an absolute position in the page, instead of a relative position)
 \RequirePackage[absolute]{textpos}
 
 \newcommand{\startcoverpage}{\pagenumbering{arabic}}
 \newcommand{\startfirstchapter}{}
 % The number of pages is counted based on the labels.
 % The lastpage package calculates the position of the LastPage label. 
-% A plain label may not work if last pages contain floats that are placed 
-% after text.
+% A plain label may not work if last pages contain floats that are placed after text.
 \newcommand{\PAGES}{\pageref{LastPage}}
 
 
-% From Samwise, edited by JLarja. Fixme can be used to wrote something that should be fixed later. 
-% It is better than just writing something to comments, since it is shown in the output file. If 
-% mydraft is declared (in documentclass), text will be shown bold between two FIXMEs. If not, text 
-% will be shown normally.
+% From Samwise, edited by JLarja.
+% Fixme can be used to wrote something that should be fixed later. 
+% It is better than just writing something to comments, since it is shown in the output file. 
+% If mydraft is declared (in documentclass), text will be shown bold between two FIXMEs. If not, text will be shown normally.
 \newcommand{\fixme}[1]{#1}
-% Draft command is used in the cover page to show the date of the
-% draft (assumed to be today)
+% Draft command is used in the cover page to show the date of the draft (assumed to be today)
 \newcommand{\DRAFT}{}
 \DeclareOption{mydraft}{
 \renewcommand{\fixme}[1]{\textsc{\small !Fixme} \textbf{#1}
@@ -71,15 +66,13 @@
 \renewcommand{\startcoverpage}{\pagenumbering{roman}}
 \renewcommand{\startfirstchapter}{\pagenumbering{arabic}}
 % The number of pages is counted based on the labels.
-% Pages-prelude is placed manually, and the lastpage package calculates
-% the position of the LastPage label. A plain label may not work if last
-% pages contain floats that are placed after text.
+% Pages-prelude is placed manually, and the lastpage package calculates the position of the LastPage label.
+% A plain label may not work if last pages contain floats that are placed after text.
 \renewcommand{\PAGES}{\pageref{pages-prelude}~$+$~\pageref{LastPage}}
 }
 \ProcessOptions
 
-% A shortcut command for using ifthenelse when you don't need the
-% else clause.
+% A shortcut command for using ifthenelse when you don't need the else clause.
 \newcommand{\ifthen}[2]{\ifthenelse{#1}{#2}{}}
 
 % By default, only up to 3rd level headers are numbered (e.g. 1.2.2.)
@@ -93,10 +86,9 @@
 \setlength{\TPHorizModule}{1cm}
 \setlength{\TPVertModule}{1cm}
 
-% This command can be used in tables to allow linebreaks within a table
-% cell. Takes two parameters: the width of the text area, and the text 
-% to print. Unfortunately the width seems to be required; although at
-% some situations you can use \textwidth (but probably not inside tables).
+% This command can be used in tables to allow linebreaks within a table cell.
+% Takes two parameters: the width of the text area, and the text to print.
+% Unfortunately the width seems to be required; although at some situations you can use \textwidth (but probably not inside tables).
 \newcommand{\allowlinebreaks}[2]{
 % Top align makes sure that there is enough padding/margins at the top
 \begin{minipage}[t]{#1}%
@@ -157,8 +149,8 @@
   \renewcommand{\ATDATE}{\DATE}
   \renewcommand{\ATCITY}{Espoo}
   \renewcommand{\ATUNIV}{Aalto University}
-  \renewcommand{\ATSCHOOL}{School of Science}
-  \renewcommand{\ATDEGREEPROG}{Degree Programme in Computer Science and Engineering} 
+  \renewcommand{\ATSCHOOL}{School of Electrical Engineering}
+  \renewcommand{\ATDEGREEPROG}{Degree Programme in Communications Engineering} 
   \renewcommand{\ATABSTRACTNAME}{ABSTRACT OF MASTER'S THESIS}
   \renewcommand{\ATLOGO}{images/aalto-logo-en}
   \renewcommand{\ATAUTHORNAME}{Author}
@@ -191,11 +183,7 @@
   \renewcommand{\ATTHESIS}{Diplomityö}
   \renewcommand{\ATCITY}{Espoo}
   \renewcommand{\ATUNIV}{Aalto-yliopisto}
-  \renewcommand{\ATSCHOOL}{Perustieteiden korkeakoulu}
-  \renewcommand{\ATDEGREEPROG}{Tietotekniikan koulutusohjelma} 
-  \renewcommand{\ATABSTRACTNAME}{DIPLOMITYÖN TIIVISTELMÄ}
-  \renewcommand{\ATLOGO}{images/aalto-logo-fi}
-  \renewcommand{\ATAUTHORNAME}{Tekijä}
+  \renewcommand{\ATSCHOOL}{Sähkötekniikan korkeakoulu}{Tekijä}
   \renewcommand{\ATKEYWORDSNAME}{Asiasanat}
   \renewcommand{\ATKEYWORDS}{\FKEYWORDS}
   \renewcommand{\ATPAGESNAME}{Sivumäärä}  
@@ -244,8 +232,7 @@
 
 % Command to render the cover page 
 % ------------------------------------------------------------------
-% Takes one parameter, options: finnish, swedish, and (default): english
-% These control in which language the cover-page information is shown
+% Takes one parameter, options: finnish, swedish, and (default): english These control in which language the cover-page information is shown
 \newcommand{\coverpage}[1]{
 \thispagestyle{empty}
 \selectlanguage{#1}
@@ -298,13 +285,12 @@
 \selectlanguage{#1}
 \selectterms{#1}
 {%
-% First block sets the logo. Must be placed manually, because
-% the logo itself has huge blank areas around it.
+% First block sets the logo.
+% Must be placed manually, because the logo itself has huge blank areas around it.
 \begin{textblock}{10}(9.07,1)
 \raggedleft\noindent\includegraphics[height=2.7cm]{\ATLOGO}
 \end{textblock}
-% Before the main abstract table there is the school name
-% and abstract title (ABSTRACT OF THE MASTER'S THESIS etc.) 
+% Before the main abstract table there is the school name and abstract title (ABSTRACT OF THE MASTER'S THESIS etc.) 
 \begin{textblock}{15}(3.2,3)
 \setlength{\extrarowheight}{0.5ex}
 \noindent
@@ -357,20 +343,18 @@
 % ------------------------------------------------------------------
 
 
-% The following command we instruct LaTeX to not 
-% complain about underfull hboxes in the bibliography:
+% The following command we instruct LaTeX to not complain about underfull hboxes in the bibliography:
 \apptocmd{\thebibliography}{\hbadness 10000\relax}{}{}
-% Alternatively, we can force the bibliography to be raggedright 
-% (not justified), this often works as well:
+% Alternatively, we can force the bibliography to be raggedright (not justified), this often works as well:
 % \apptocmd{\thebibliography}{\raggedright}{}{}
 
 
-% The standard teletype font makes URLs look a bit too big. These commands
-% here make the URLs a bit smaller, so that they look better in text. 
+% The standard teletype font makes URLs look a bit too big.
+% These commands here make the URLs a bit smaller, so that they look better in text. 
 \makeatletter
 \def\url@smallurlstyle{%
   \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
 \makeatother
-%% Now actually use the newly defined style.
+% Now actually use the newly defined style.
 \urlstyle{smallurl}
 
