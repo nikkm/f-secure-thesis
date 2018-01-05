@@ -13,7 +13,6 @@
 
 ## Intermediate documents:
 *.dvi
-*.xdv
 *-converted-to.*
 # these rules might exclude image files for figures etc.
 # *.ps
@@ -215,11 +214,7 @@ TSWLatexianTemp*
 *~[0-9]*
 
 # auto folder when using emacs and auctex
-./auto/*
-*.el
+/auto/*
 
 # expex forward references with \gathertags
 *-tags.tex
-
-# standalone packages
-*.sta
