@@ -12,6 +12,24 @@
 \item Previous research done on different threat analysis methods
 \end{itemize}}
 
+\fixme{I'll write about "early history" when I find sources.}
+
+\citet{threat_analysis_1993} separates the different threat analysis methods used up until 1993 into three generations: the first generation starting from 1972, the second generation from 1981 onward and the third generation that was introduced in 1988.
+
+The first generation relies heavily on check-lists composed by authorities in the field. 
+The systems these first-generation methods were used on were much simpler than the ones in use now, and security analysis consisted of choosing the best option of a limited list of known components, instead of the wealth of options that developers currently have.
+They do not expect the analyst to have deep knowledge, as independent analysis is not needed.
+It was also more focused on hardware than software. \cite{threat_analysis_1993}
+
+The second generation came when the systems got too complicated for the first generation's check-list method. 
+It relies on partitioning the system into smaller components and then coming up with a solution that matches the functional requirements of each component.
+Secong generation methods are more complex, and the analysts need a higher degree of training, but does not rely on a set solution set and can be used in much more complex systems. \cite{threat_analysis_1993}
+
+Third generation relies on more abstraction compared to the second generation. 
+Instead of partitioning the system into components like int second generation, the third generation relies on building abstract models of the systems, and using them as an aid in the analysis.
+These methods are most useful when designing the system, and the amount of training is even higher than in second generation.
+On the other hand, third generation solutions are more flexible and should lead to less conflict between security and usability. \cite{threat_analysis_1993}
+
 \section{Authentication and Authorization systems}
 
 \fixme{\begin{itemize}
