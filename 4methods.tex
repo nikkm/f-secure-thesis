@@ -9,4 +9,36 @@
 \item Studies on them
 \end{itemize}}
 
-Threat modelling. \cite{myagmar2005threat}
+\newpage
+
+\section{STRIDE}
+
+STRIDE is a threat modelling technique that was developed by Loren Kohnfelder and Praerit Garg at Microsoft. 
+It is based on going through types of threats that can be found in a system with the help of the mnemonic "STRIDE", which stands for Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service and Elevation of Privilege. \cite{threat_modeling_book}
+
+\emph{Spoofing} is the attacker or a system is pretending to be someone or something they are not. 
+
+\emph{Tampering} means changing something in data the attacker should not be able to change.
+
+\emph{Repudiation} is claiming not to have done something, or to have done something.
+This can be by bypassing or tampering with the logs, or on a business layer by making claims about what has and hasn't been done.
+
+\emph{Information Disclosure} refers to providing information or data to an attacker or a third person who should not have access to it.
+
+\emph{Denial of Service} is an attack type where a system is tricked into using using its resources with illegitimate claims, usually to the point where legitimate service requests no longer go through.
+
+\emph{Elevation of privilege} means giving the attacker or someone else rights to do something they should not be able to do.
+
+\fixme{Maybe add examples? Might be useful to make this into a list or a table.}
+
+\citet{microsoft_security_lifecycle} outline the threat analysis progress used at Microsoft.
+It starts with defining use cases and determining the scope of the system that will be analysed. 
+After that the dependencies of the system are gathered.
+The third thing that is done is defining security assumptions, as incorrect assumptions can lead to large issues, for example if the operating system or the hardware is incorrectly assumed to be safe.
+Then the developers write security notes for the use of developers who depend on the product and users.
+After all this has been done, as many data flow diagrams as are needed are drawn based on the system.
+Threat types based on STRIDE are then determined, and what threats are relevant to each system element is identified.
+When threats have been found, the risk each of them poses to the system is calculated based on the chance that the attack will occur and the damage the attack would pose to the company and to the system.
+Finally, the risks are mitigated, for example by fixing any issues found, or minimizing the risk that an attack will happen or removing the feature if it turns out to be too risky. 
+
+\fixme{Too long, needs to be changed. Maybe by making each its own paragraph and elaborating or cutting it in half somewhere.}
