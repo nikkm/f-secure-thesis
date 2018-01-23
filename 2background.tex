@@ -1,21 +1,8 @@
 \chapter{Background}
 \label{chapter:background} 
 
-\fixme{Needs a less generalized title.}
-
 \section{Threat Analysis}
-
-\fixme{\begin{itemize}
-\item Some history on threat analysis
-\item Research on the importance of threat analysis
-\item Some mistakes made in the past, as an example
-\item Previous research done on different threat analysis methods
-\end{itemize}}
-
-
-\newpage
 \fixme{I'll write about "early history" when I find sources.}
-
 
 \citet{threat_analysis_1993} separates the different threat analysis methods used up until 1993 into three generations: the first generation starting from 1972, the second generation from 1981 onward and the third generation that was introduced in 1988.
 
@@ -39,16 +26,92 @@ The first era that they call the Computer-centric era is before the early 1980's
 According to \citet{risk_analysis_to_security_requirements}, a company's business didn't depend on computers and computer security then as it does now.
 Assets were easy to protect, as the protection could be done with physical controls like locks on the doors and threats could be found using simple check lists.
 
-The second era, or the IT-centric era, lasted from the early 1980's to the early 1990's, which corresponds to what \citep{threat_analysis_1993} called the first and second generations.
+The second era, or the IT-centric era, lasted from the early 1980's to the early 1990's, which corresponds to what \citet{threat_analysis_1993} called the first and second generations.
 The businesses were increasingly dependent on computers, and security became more and more important.
 The identifying of the assets became an issue, as they were not physically located in the same place any more, and sometimes were not even physical.
-This lead to first using impact values, which depend on subjective guesses on impacts of threats, and then to qualitative techniques using tables with impact values and the probability of threats. \citet{risk_analysis_to_security_requirements}
+This lead to first using impact values, which depend on subjective guesses on impacts of threats, and then to qualitative techniques using tables with impact values and the probability of threats. \cite{risk_analysis_to_security_requirements}
 
 The third era, called the Information-Centric era, started in the 1990's.
 In the Information-Centric era businesses depend on information and computers, and risk analysis is no longer enough as legal and business requirements become more and more important.
-This has lead to a trend of moving away from pure risk analysis, and into mixed risk and security requirements analysis, taking into account the unique risks and requirements each system and business has. \citet{risk_analysis_to_security_requirements}
+This has lead to a trend of moving away from pure risk analysis, and into mixed risk and security requirements analysis, taking into account the unique risks and requirements each system and business has. \cite{risk_analysis_to_security_requirements}
 
-\newpage
+\subsection{STRIDE}
+
+STRIDE is a threat modelling technique that was developed by Loren Kohnfelder and Praerit Garg at Microsoft. 
+It is based on going through types of threats that can be found in a system with the help of the mnemonic "STRIDE", which stands for Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service and Elevation of Privilege. \cite{threat_modeling_book}
+
+\emph{Spoofing} is the attacker or a system is pretending to be someone or something they are not. 
+
+\emph{Tampering} means changing something in data the attacker should not be able to change.
+
+\emph{Repudiation} is claiming not to have done something, or to have done something.
+This can be by bypassing or tampering with the logs, or on a business layer by making claims about what has and hasn't been done.
+
+\emph{Information Disclosure} refers to providing information or data to an attacker or a third person who should not have access to it.
+
+\emph{Denial of Service} is an attack type where a system is tricked into using using its resources with illegitimate claims, usually to the point where legitimate service requests no longer go through.
+
+\emph{Elevation of privilege} means giving the attacker or someone else rights to do something they should not be able to do.
+
+\fixme{Maybe add examples? Might be useful to make this into a list or a table.}
+
+\subsubsection{STRIDE at Microsoft}
+
+\citet{microsoft_security_lifecycle} outline the threat analysis progress used at Microsoft.
+It starts with defining use cases and determining the scope of the system that will be analysed. 
+They also recommend that the reasoning behind the scope is documented, as changes in the system can lead to the need to have a different scope.
+
+
+After that the dependencies of the system are gathered. \cite{microsoft_security_lifecycle}
+This also covers the hardware and the operating system or systems the program or programs run on.
+Situations where dependencies are proprietary or black boxes from the point of view of the user need to be taken into account.
+
+The third thing that is done is defining security assumptions. \cite{microsoft_security_lifecycle}
+Incorrect assumptions can lead to large issues, for example if the operating system or the hardware is incorrectly assumed to be safe.
+This is also important because if the assumptions are not explicitly defined they will still implicitly exist in the background.
+
+Then the developers write security notes for the use of developers who depend on the product and users. \cite{microsoft_security_lifecycle}
+This includes writing down what security implications have been introduced by external dependencies, for example any ports that have been opened for outside access.
+
+
+After all this has been done, as many data flow diagrams as are needed are drawn based on the system. \cite{microsoft_security_lifecycle}
+The DFDs usually consist of entities, processes, data storages, data flows and external entities that have access to the system. 
+Trust boundaries, or places where data is moved from one level or privilege to another, are also shown in DFDs.
+The diagrams are also usually drawn on several levels, to show processes from the user's and the program's point of view.
+
+Threat types based on STRIDE are then determined, and what threats are relevant to each system element is identified.
+
+When threat types have been determined, which of them is a risk to which element of the system is determined. \cite{microsoft_security_lifecycle}
+Threat-tree patterns can be used at this point.
+These threats are then documented.
+
+The risk each of them poses to the system usually also is calculated based on the chance that the attack will occur and the damage the attack would pose to the company and to the system. \cite{microsoft_security_lifecycle}
+This helps the prioritization of the resolving of the threats. 
+Unfortunately there is a measure of uncertainty in determining how likely each attack is, and for this reason \citet{microsoft_security_lifecycle} recommend using threat levels instead of raw numbers in prioritization. 
+
+Finally, the risks are mitigated, for example by fixing any issues found.
+Minimizing the risk that an attack will happen or removing the feature if it turns out to be too risky are also options.
+
+According to \citet{stride_effectiveness}, computer science students using STRIDE for the first time were able to find 1.8 threats per hour, were able to find 64-69\% of all threats and overlooked 19-24\% of threats.
+
+\subsection{Exploit Chain Analysis}
+
+\fixme{Research this!}
+
+\subsection{Assurance Cases}
+
+\fixme{Research this!}
+
+\subsection{Attack trees}
+
+\fixme{Research this!}
+
+\subsection{Threat Analysis at F-Secure}
+
+\fixme{\begin{itemize}
+\item The flow of analysis on F-Secure
+\item Might contain secret material while writing, start only after text has been moved to F-Secure servers
+\end{itemize}}
 
 \section{Authentication and Authorization systems}
 
@@ -57,4 +120,12 @@ This has lead to a trend of moving away from pure risk analysis, and into mixed 
 \item Common flows in systems
 \item Examples of different kinds
 \item Importance of good system and its security
+\end{itemize}}
+
+\subsection{OneID}
+
+\fixme{\begin{itemize}
+\item Introduction to OneID as a system
+\item Enough architecture to build the analysis on later
+\item Might contain secret material while writing, start only after text has been moved to F-Secure servers
 \end{itemize}}
